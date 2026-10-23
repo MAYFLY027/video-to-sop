@@ -1,0 +1,35 @@
+[build-system]
+requires = ["hatchling>=1.26,<2"]
+build-backend = "hatchling.build"
+
+[project]
+name = "video-to-sop"
+version = "0.1.0"
+description = "Evidence-linked video to SOP and notes"
+requires-python = ">=3.12"
+dependencies = [
+  "yt-dlp>=2025.1.0",
+  "webvtt-py>=0.5.1,<1",
+  "markdown-it-py>=3,<5",
+]
+
+[project.optional-dependencies]
+asr = ["faster-whisper>=1.1,<2", "av>=11,<18"]
+ocr = ["rapidocr-onnxruntime>=1.4,<2"]
+pdf = ["playwright>=1.50,<2"]
+test = ["pytest>=8,<10"]
+all = [
+  "faster-whisper>=1.1,<2",
+  "av>=11,<18",
+  "rapidocr-onnxruntime>=1.4,<2",
+  "playwright>=1.50,<2",
+]
+
+[project.scripts]
+video-to-sop = "video_to_sop.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["video_to_sop"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

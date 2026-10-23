@@ -1,0 +1,28 @@
+# Copy to a local path outside the published package, then set environment keys.
+output_dir = "video-to-sop-output"
+output_language = "zh-CN"
+source_languages = ["zh", "en"]
+max_duration_minutes = 120
+sample_interval_seconds = 15
+max_frames = 300
+vision_max_frames = 30
+concurrency = 2
+retry_limit = 2
+asr_mode = "local" # local | remote | off
+asr_model = "small"
+asr_device = "auto" # auto | cpu | cuda
+
+[text_model]
+base_url = "https://api.deepseek.com"
+model = "" # Set to the exact model available through your DeepSeek endpoint.
+api_key_env = "VTS_TEXT_API_KEY"
+
+[vision_model]
+base_url = "" # Set only after verifying image input on this endpoint.
+model = ""
+api_key_env = "VTS_VISION_API_KEY"
+
+[remote_asr]
+base_url = ""
+model = ""
+api_key_env = "VTS_ASR_API_KEY"

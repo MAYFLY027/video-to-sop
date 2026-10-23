@@ -1,0 +1,12 @@
+.venv/
+__pycache__/
+.pytest_cache/
+*.pyc
+*.pyo
+video-to-sop-output/
+*.part
+*.cookies.txt
+config.local.toml
+runtime/
+assets/asr/
+*.log
